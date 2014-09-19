@@ -6,7 +6,7 @@ class Expense < ActiveRecord::Base
 
   validates :name, :amount, presence: true
 
-  after_save :distribute_owed_amounts
+  # after_save :distribute_owed_amounts
   before_destroy :delete_owed_amounts
 
   # could belong to comment
