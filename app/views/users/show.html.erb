@@ -6,6 +6,7 @@
     <%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id) %>
     <% else %>
     <%= link_to "Create abode", dwellings_new_path %>
+    <%= link_to "Join abode", user_join_path %>
     <% end %>
   </li>
 </ul>
