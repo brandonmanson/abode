@@ -1,6 +1,8 @@
 class Dwelling < ActiveRecord::Base
   has_many :users
   has_many :expenses, through: :users
+  has_many :comments, as: :commentable
+
   before_create :create_secret_key
 
 

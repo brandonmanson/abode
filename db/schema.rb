@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140918152039) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "commentable_type"
     t.integer  "commentable_id"
     t.text     "description"
     t.datetime "created_at"
