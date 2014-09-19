@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
     if @expense.save
+      @expense.distribute_owed_amounts
       render partial: 'new', locals: {expense: Expense.new}
     else
       flash.now[:error] = "Expenses need a name and an amount"
