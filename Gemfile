@@ -53,5 +53,6 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
+  gem 'rspec-activemodel-mocks'
 end
 
