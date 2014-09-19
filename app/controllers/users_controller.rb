@@ -33,6 +33,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def join
+    @dwelling = Dwelling.new
+  end
+
+  def add
+    @dwelling = Dwelling.find_by(secret_key: params[:secret_key])
+    current_user.dwelling = @dwelling
+    if current_user.save
+      
+    else
+    end
+  end
+
   private
 
     def user_params
