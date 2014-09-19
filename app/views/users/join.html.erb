@@ -1,0 +1,5 @@
+<%= flash[:error] %>
+<%= form_for @dwelling, url: user_add_path, method: :put do |f| %>
+	<%= f.text_field :secret_key,	placeholder: "Abode Code" %>
+	<%= f.submit "Join Abode" %>
+<% end %>

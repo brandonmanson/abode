@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
 
+  get '/abodes/join' => 'users#join', as: :user_join
+  put '/abodes' => 'users#add', as: :user_add
+
   get '/abodes/expenses' => 'expenses#index', as: :expenses_list
   post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
   get '/expenses/:id' => 'expenses#show', as: :expense_show
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
   put '/expenses/:id' => 'expenses#update', as: :expense_update
   delete '/expenses/:id' => 'expenses#destroy', as: :expense_destroy
 
-  get '/signin' => 'sessions#new', as: :new_session
+  get '/signin' => 'sessions#new', as: :signin
   post '/signin' => 'sessions#create', as: :sessions
   delete '/signout' => 'sessions#destroy', as: :signout
 
@@ -35,10 +38,6 @@ Rails.application.routes.draw do
   resources :expenses do
     resources :comments, only: [:index, :new, :create, :destroy, :update]
   end
-
-  # get '/abodes/:id/expenses/:expense_id' => 'expenses#show', as: :expenses_show
-
-  # get '/abodes/:id/expenses/new' => 'expenses#new' as: :expenses_new
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

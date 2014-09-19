@@ -1,13 +1,13 @@
 class Expense < ActiveRecord::Base
   belongs_to :payer, class_name: "User"
-  has_many :user_expenses
+  has_many :user_expenses, dependent: :destroy
   has_many :users, through: :user_expenses
   has_one :dwelling, through: :payer
   has_many :comments, as: :commentable
 
   validates :name, :amount, presence: true
 
-  after_save :distribute_owed_amounts
+  # after_save :distribute_owed_amounts
   before_destroy :delete_owed_amounts
 
   # could belong to comment
