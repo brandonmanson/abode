@@ -7,12 +7,8 @@ class DwellingsController < ApplicationController
     @dwelling = Dwelling.new(dwelling_params)
     @dwelling.admin_id = current_user.id
     if @dwelling.save
-      puts "/n/n/n/n/n/n/n/n Dwelling was saved"
       u = User.find(current_user.id)
-      puts "this is right after user found"
       u.update(dwelling_id: @dwelling.id)
-      puts "right after we update user"
-      # u.save
       redirect_to dwelling_show_path(@dwelling.id)
     else
       flash.now[:error] = "sorry that didn't save. Try again"
