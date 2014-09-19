@@ -41,5 +41,6 @@ describe ExpensesController do
       put :update, id: Expense.first.id, expense: { name: "Test update", amount: 400 }
       expect(response).to redirect_to(expense_show_path(assigns(:expense)))
     end
+
   end
 end
