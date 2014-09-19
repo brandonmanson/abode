@@ -5,7 +5,7 @@
 body {
   background-color: #03A89E;
   font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
-  margin-top: -1%;
+  margin-top: 7%;
 }
 
 nav {
@@ -13,7 +13,8 @@ nav {
 	position: fixed;
 	width: 100%;
 	background-color: #03A89E;
-	padding-bottom: 1%;
+	top: 0;
+	padding-bottom: 2%;
 }
 
 
@@ -38,7 +39,7 @@ nav ul li a:hover {
   margin: auto;
 }
 
-img {
+#home_img {
   display: block;
   margin: auto;
   margin-bottom: -15%;
@@ -100,4 +101,34 @@ form#new_dwelling {
 	position: absolute;
 	top: 400px;
 }
+
+/* Signup Form */
+
+#new_user {
+	display: block;
+}
+
+#user_name, #user_email, #user_phone, #user_password, #user_password_confirmation, input[type="submit"] {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 2%;
+	width: 320px;
+	border: none;
+	padding: 1% 3% 1% 3%;
+	font-size: 1.2em;
+}
+
+input[type="submit"] {
+	color: #03A89E;
+	font-weight: bold;
+	background-color: white;
+}
+
+input[type="submit"]:hover {
+	background-color: #808A87;
+	color: white;
+}
+
+
 
