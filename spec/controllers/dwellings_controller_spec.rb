@@ -9,6 +9,7 @@ describe DwellingsController do
       expect(response).to render_template(:new)
     end
 
+    # uncertain how to test when route requires current user
     it 'should redirect to show page if dwelling is created' do
       post :create, dwelling: {name: "Test dwelling", address: "123 somewhere"}
 
