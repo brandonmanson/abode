@@ -1,0 +1,53 @@
+/* line 5, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+body {
+  background-color: #03A89E;
+}
+
+/* line 9, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* line 14, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+.sign-up {
+  box-sizing: border-box;
+  width: 320 px;
+  height: 140px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* line 23, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+.sign-up a {
+  color: #03A89E;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2em;
+  margin-top: 50%;
+}
+
+/* line 32, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+

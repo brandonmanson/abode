@@ -48,6 +48,7 @@ describe UsersController do
       expect(response).to redirect_to(user_update_path(assigns(:user)))
     end
 
+    # Password validation no longer works for update because we removed so that a person can be added to a dwelling. Best way to fix this situation - find another way to allow user to add dwelling (without supplying password) or find another way to validate password if user wants to update password?
     it 'should render edit page again if edited unsuccessfully' do
       put :update, id: @user.id, user: {name: "User updated", email: "user@example.com", password: "pass", password_confirmation: "pass"}
       expect(response).to render_template(:edit)
