@@ -4,14 +4,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    dwelling = Dwelling.find(params[:abode_id])
-    comment = dwelling.comments.new(comment_params)
+    @dwelling = Dwelling.find(params[:abode_id])
+    comment = @dwelling.comments.new(comment_params)
     comment.assign_attributes(user_id: current_user.id)
     if comment.save
       redirect_to abode_path(params[:abode_id])
     else
-      flash.now[:error] = "Description required"
-      render partial: 'new', locals: { dwelling: dwelling, comment: comment }
+      flash[:error] = "Description required"
+      redirect_to abode_path(params[:abode_id])
     end
   end
 

@@ -18,7 +18,7 @@
 
 <div class="comments">
   <ul>
-    <%= @dwelling.comments.each do |comment| %>
+    <% @dwelling.comments.each do |comment| %>
       <li><%= comment.description %></li>
     <% end %>
   </ul>
