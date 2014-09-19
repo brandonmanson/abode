@@ -38,11 +38,13 @@ class UsersController < ApplicationController
   end
 
   def add
-    @dwelling = Dwelling.find_by(secret_key: params[:secret_key])
+    @dwelling = Dwelling.find_by(secret_key: params[:dwelling][:secret_key])
     current_user.dwelling = @dwelling
     if current_user.save
-      
+      redirect_to dwelling_show_path(@dwelling.id)
     else
+      flash.now[:error] = "This is not a valid code"
+      render :join
     end
   end
 
