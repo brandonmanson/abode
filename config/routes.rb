@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   put '/expenses/:id' => 'expenses#update', as: :expense_update
   delete '/expenses/:id' => 'expenses#destroy', as: :expense_destroy
 
-  get '/signin' => 'sessions#new', as: :new_session
+  get '/signin' => 'sessions#new', as: :signin
   post '/signin' => 'sessions#create', as: :sessions
   delete '/signout' => 'sessions#destroy', as: :signout
 

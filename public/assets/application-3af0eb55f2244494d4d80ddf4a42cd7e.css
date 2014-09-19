@@ -1,0 +1,117 @@
+/* line 5, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+body {
+  background-color: #03A89E;
+  font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
+  margin-top: -1%;
+}
+
+/* line 11, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+nav {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: #03A89E;
+  padding-bottom: 1%;
+}
+
+/* line 20, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+nav ul li {
+  display: inline-block;
+  float: left;
+  margin-top: 1%;
+}
+
+/* line 26, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+/* line 32, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+nav ul li a:hover {
+  color: #808A87;
+}
+
+/* line 36, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* line 41, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+img {
+  display: block;
+  margin: auto;
+  margin-bottom: -15%;
+  width: 100%;
+}
+
+/* line 48, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#tagline {
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: -6%;
+  margin-bottom: 10%;
+}
+
+/* line 57, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#signup {
+  box-sizing: border-box;
+  display: block;
+  background-color: white;
+  color: #03A89E;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 3em;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 12%;
+}
+
+/* line 72, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#signup:hover {
+  color: white;
+  background-color: #808A87;
+}
+
+/* line 77, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#home-sign-in {
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  font-weight: lighter;
+}
+
+/* line 84, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#home-sign-in-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* line 90, /Users/brandonmanson/Desktop/DBC/phase_3/abode/app/assets/stylesheets/static_pages.css.scss */
+#home-sign-in-link:hover {
+  color: #808A87;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
