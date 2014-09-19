@@ -1,0 +1,5 @@
+<%= flash[:error] %>
+<%= form_for [dwelling, comment], :url => abode_comments_path(dwelling, comment) do |f| %>
+  <%= f.text_area :description, size: "60x10" %>
+  <%= f.submit "Add Comment" %>
+<% end %>

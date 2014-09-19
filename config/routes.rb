@@ -31,6 +31,13 @@ Rails.application.routes.draw do
   get '/abodes/:id/edit' => 'dwellings#edit', as: :dwelling_edit
   put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
 
+  resources :abodes do
+    resources :comments, only: [:index, :new, :create, :destroy, :update]
+  end
+
+  resources :expenses do
+    resources :comments, only: [:index, :new, :create, :destroy, :update]
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -3,6 +3,7 @@ class Expense < ActiveRecord::Base
   has_many :user_expenses, dependent: :destroy
   has_many :users, through: :user_expenses
   has_one :dwelling, through: :payer
+  has_many :comments, as: :commentable
 
   validates :name, :amount, presence: true
 

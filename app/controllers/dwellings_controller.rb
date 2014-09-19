@@ -19,6 +19,7 @@ class DwellingsController < ApplicationController
   def show
     if current_user && current_user.dwelling.id.to_s == params[:id]
       @dwelling = Dwelling.find(params[:id])
+      @comment = Comment.new
     else
       redirect_to new_session_path
     end

@@ -1,4 +1,4 @@
-<h1>Welcome to your abode abode</h1>
+<h1>Welcome to your abode</h1>
 <h2><%= @dwelling.name %></h2>
 <h3><%= @dwelling.address %></h3>
 <div id="expenses-wrapper">
@@ -15,3 +15,14 @@
 </div>
 
 <p>Send the code '<%= @dwelling.secret_key %>' to your roommates to let them join this abode.</p>
+
+<div class="comments">
+  <ul>
+    <% @dwelling.comments.each do |comment| %>
+      <li><%= comment.description %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="new-comment">
+  <%= render partial: "comments/new", locals: { dwelling: @dwelling, comment: @comment } %>
+</div>
