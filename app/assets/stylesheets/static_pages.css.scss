@@ -4,6 +4,33 @@
 
 body {
   background-color: #03A89E;
+  font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
+  margin-top: -1%;
+}
+
+nav {
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	background-color: #03A89E;
+	padding-bottom: 1%;
+}
+
+
+nav ul li {
+	display: inline-block;
+	float: left;
+	margin-top: 1%;
+}
+
+nav ul li a {
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+}
+
+nav ul li a:hover {
+	color: #808A87;
 }
 
 .container {
@@ -11,26 +38,56 @@ body {
   margin: auto;
 }
 
-.sign-up {
-	box-sizing: border-box;
-	width: 320 px;
-	height: 140px;
-	background-color: white;
-	border-radius: 5px;
-	text-align: center;
-}
-
-.sign-up a {
-	color: #03A89E;
-	text-align: center;
-	text-decoration: none;
-	font-size: 2em;
-	margin-top: 50%;
-}
-
-
 img {
   display: block;
   margin: auto;
+  margin-bottom: -15%;
   width: 100%;
 }
+
+#tagline {
+	color: white;
+	font-size: 1.2em;
+	text-align: center;
+	font-weight: bold;
+	margin-top: -6%;
+	margin-bottom: 10%;
+}
+
+#signup {
+	box-sizing: border-box;
+	display: block;
+	background-color: white;
+	color: #03A89E;
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: lighter;
+	font-size: 3em;
+	text-align: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-top: 12%;
+}
+
+#signup:hover {
+	color: white;
+	background-color: #808A87;
+}
+
+#home-sign-in {
+	text-align: center;
+	font-size: 1.5em;
+	color: white;
+	font-weight: lighter;
+}
+
+#home-sign-in-link {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#home-sign-in-link:hover {
+	color: #808A87;	
+}
+
