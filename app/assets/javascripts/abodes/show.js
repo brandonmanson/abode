@@ -5,6 +5,7 @@ $(document).ready(function(){
     var data = $(this).serialize();
     request = $.ajax(action, {method: "post", data: data});
     request.done(function(response) {
+      // debugger;
       $("#new-expense-form-container").html(response);
       fetch_abode_expenses();
     });
