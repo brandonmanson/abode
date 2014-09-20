@@ -1,0 +1,8 @@
+<%= flash[:error] %>
+<%= form_for @emergency_contact, url: { action: 'update' } do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.text_field :phone, placeholder: "Phone" %>
+  <%= f.text_field :relationship, placeholder: "Relationship" %>
+  <%= f.submit "Edit Emergency Contact" %>
+<% end %>
