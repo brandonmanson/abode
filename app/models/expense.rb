@@ -5,9 +5,11 @@ class Expense < ActiveRecord::Base
   has_one :dwelling, through: :payer
   has_many :comments, as: :commentable
 
+  accepts_nested_attributes_for :user_expenses
   validates :name, :amount, presence: true
 
   # after_save :distribute_owed_amounts
+  # before_save :distributed?
   before_destroy :delete_owed_amounts
 
   # could belong to comment
@@ -27,6 +29,10 @@ class Expense < ActiveRecord::Base
     end
   end
 
+  def distributed?
+    UserExpense.where(expense_id: self.id).sum(:portion) == self.amount
+  end
+
   def redistribute_owed_amounts
     old_user_expense_total = self.user_expenses.sum("portion")
     if old_user_expense_total != self.amount
@@ -36,7 +42,6 @@ class Expense < ActiveRecord::Base
       end
     end
   end
-
 
   def delete_owed_amounts
     UserExpense.delete_all(expense_id: self.id)

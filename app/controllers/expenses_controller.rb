@@ -36,6 +36,7 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find(params[:id])
+    p params
     unless current_user.dwelling == @expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
