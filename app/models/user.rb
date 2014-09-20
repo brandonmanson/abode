@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :expenses, foreign_key: :payer_id
   has_many :user_expenses
   has_many :comments
+  has_many :emergency_contacts
 
 
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }

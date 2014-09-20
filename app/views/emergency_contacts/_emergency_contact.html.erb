@@ -1,0 +1,10 @@
+<li>
+  <%= emergency_contact.name %>
+  <%= link_to "(Edit)", controller: 'emergency_contacts', action: 'edit', user_id: current_user.id, id: emergency_contact.id %>
+<!--   <%= button_to "Delete", controller: 'emergency_contacts', action: 'destroy', method: :delete, user_id: current_user.id, id: emergency_contact.id %> -->
+  <ul>
+    <li><%= emergency_contact.phone %></li>
+    <li><%= emergency_contact.email %></li>
+    <li><%= emergency_contact.relationship %></li>
+  </ul>
+</li>
