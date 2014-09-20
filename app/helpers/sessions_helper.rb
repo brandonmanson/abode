@@ -24,4 +24,10 @@ module SessionsHelper
   def signed_in?
     !current_user.nil?
   end
+
+  def set_user_or_redirect(id = current_user.id)
+    p "CURENTUSERSID = #{current_user.id}   ID = #{id}"
+    return current_user if current_user.id.to_s == id.to_s
+    redirect_to signin_path
+  end
 end
