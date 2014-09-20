@@ -13,6 +13,7 @@ class InvitationsController < ApplicationController
       redirect_to new_abode_invitation_path
     else
       flash.now[:message] = "Email not valid"
+      render 'new'
     end
   end
 

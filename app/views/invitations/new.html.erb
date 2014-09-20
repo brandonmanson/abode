@@ -1,5 +1,5 @@
 <%= flash[:message] %>
-<%= form_for @invitation, url: {controller: 'invitations', action: 'create' } do |f| %>
+<%= form_for @invitation, url: abode_invitations_path do |f| %>
   <%= f.text_field :email, placeholder: "Email" %>
   <%= f.submit "Invite Roommates" %>
 <% end  %>
