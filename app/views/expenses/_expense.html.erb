@@ -1,23 +1,23 @@
-<li>
   <div id="expense_<%=expense.id%>" class="expense" >
-    <%= link_to "Expense: #{expense.name}", expense_show_path(expense) %>
+    <h3><%= link_to "#{expense.name}", expense_show_path(expense) %></h3>
     <p><%= expense.amount %></p>
     <p><%= expense.description %></p>
-    payer: <%= expense.payer.name %>
-      <div class="owers"><ul>
-        OWERS:
-        <% expense.users.each do |user| %>
-          <li><%=user.name%></li>
-        <% end %>
-      </ul></div>
-      <div class="expense-comments"><ul>
-        COMMENTS:
-        <% expense.comments.each do |comment| %>
-          <li><%=comment.description%></li>
-        <% end %>
-      </ul></div>
+    <p>Who's in charge: <%= expense.payer.name %></p>
+      <div class="owers">
+        <p>Who's Paying:</p>
+        <p><% expense.users.each do |user| %>
+          <%=user.name%>
+        <% end %></p>
+      </div>
+      <div class="expense-comments">
+      <p>COMMENTS:</p>
+        <ul>
+          <% expense.comments.each do |comment| %>
+            <li><%=comment.description%></li>
+          <% end %>
+        </ul>
+      </div>
 
 
       <p><%= link_to "Delete", expense_destroy_path(expense), method: "delete" %></p>
   </div>
-</li>

@@ -5,7 +5,8 @@
 body {
   background-color: #03A89E;
   font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
-  margin-top: 10%;
+  margin-top: 100px;
+  color: white;
 }
 
 .gravatar {
@@ -18,14 +19,13 @@ nav {
 	width: 100%;
 	background-color: #03A89E;
 	top: 0;
-	padding-bottom: 2%;
 }
 
 
 nav ul li {
 	display: inline-block;
 	float: left;
-	margin-top: 1%;
+	padding-left: 2%;
 }
 
 nav ul li a {
@@ -47,6 +47,7 @@ nav ul li a:hover {
   display: block;
   margin: auto;
   margin-bottom: -15%;
+  margin-top: -10%;
   width: 100%;
 }
 
@@ -54,7 +55,7 @@ nav ul li a:hover {
 	color: white;
 	font-size: 1.2em;
 	text-align: center;
-	font-weight: bold;
+	font-weight: lighter;
 	margin-top: -6%;
 	margin-bottom: 10%;
 }
@@ -96,23 +97,14 @@ nav ul li a:hover {
 	color: #808A87;
 }
 
-form#new_user {
-	position: absolute;
-	top: 400px;
-}
-
-form#new_dwelling {
-	position: absolute;
-	top: 400px;
-}
-
 /* Signup Form */
 
-#new_user {
+form#new_user, form#new_dwelling {
 	display: block;
+	margin: auto;
 }
 
-#user_name, #user_email, #user_phone, #user_password, #user_password_confirmation, input[type="submit"] {
+#user_name, #user_email, #user_phone, #user_password, #user_password_confirmation, input[type="submit"], #session_email, #session_password, #dwelling_name, #dwelling_address, #expense_name, #expense_description, #expense_amount {
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
@@ -134,5 +126,47 @@ input[type="submit"]:hover {
 	color: white;
 }
 
+/* Sign In Form */
 
+#sign-in {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 3em;
+}
+
+/* User Profile */
+
+ul li a, .profile_links {
+	color: white;
+	font-weight: lighter;
+	text-decoration: none;
+	font-size: 1.5em;
+	padding-bottom: 10px;
+}
+ 
+ul li a:hover, .profile_links:hover {
+	color: #808A87;
+}
+
+.expense h3 {
+	font-size: 2em;
+}
+
+.expense h3 a {
+	text-decoration: none;
+	color: white;
+}
+
+.expense h3 a:hover {
+	color: #808A87;
+}
+
+.expense p, .owers p, .expense-comments ul p {
+	font-size: 1.5em;
+}
+
+.expense-comments li:odd {
+	background-color: #808A87;
+}
 
