@@ -29,6 +29,7 @@
     @expense = Expense.find(params[:id])
     @expense.attributes = expense_params
     if @expense.save
+      @expense.redistribute_owed_amounts
       redirect_to expense_show_path(@expense)
     else
       render 'edit'

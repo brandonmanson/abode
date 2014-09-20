@@ -12,7 +12,7 @@ class Expense < ActiveRecord::Base
 
   # could belong to comment
   def total_paid
-    self.user_expenses.reduce(0) { |sum, user_expense| user_expense.paid + sum }
+    self.user_expenses.sum("paid")
   end
 
   def distribute_owed_amounts
@@ -26,6 +26,17 @@ class Expense < ActiveRecord::Base
       end
     end
   end
+
+  def redistribute_owed_amounts
+    old_user_expense_total = self.user_expenses.sum("portion")
+    if old_user_expense_total != self.amount
+      self.user_expenses.each do |user_expense|
+        user_expense.portion = (user_expense.portion/old_user_expense_total) * self.amount
+        user_expense.save
+      end
+    end
+  end
+
 
   def delete_owed_amounts
     UserExpense.delete_all(expense_id: self.id)
