@@ -5,10 +5,11 @@ class Expense < ActiveRecord::Base
   has_one :dwelling, through: :payer
   has_many :comments, as: :commentable
 
+  accepts_nested_attributes_for :user_expenses
   validates :name, :amount, presence: true
 
   # after_save :distribute_owed_amounts
-  before_save :distributed?
+  # before_save :distributed?
   before_destroy :delete_owed_amounts
 
   # could belong to comment
