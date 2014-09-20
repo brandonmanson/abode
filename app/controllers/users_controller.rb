@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(email: params[:user][:email])
+    @user = current_user
     @user.attributes = user_params
     if @user.save
       redirect_to user_show_path(@user.id)
@@ -49,9 +49,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def leave_abode
+  end
+
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :dwelling_id)
     end
 end

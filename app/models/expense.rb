@@ -27,14 +27,15 @@ class Expense < ActiveRecord::Base
     end
   end
 
-  # def redistribute_owed_amounts
-  #   old_user_expense_total = self.users_expenses.sum("portion")
-  #   if user_expense_total != self.amount
-  #   self.users_expenses.each do |user_expense|
-  #     user_expense.portion = (user_expense.portion/old_user_expense_total) * self.amount
-  #     user_expense.save
-  #   end
-  # end
+  def redistribute_owed_amounts
+    old_user_expense_total = self.user_expenses.sum("portion")
+    if old_user_expense_total != self.amount
+      self.user_expenses.each do |user_expense|
+        user_expense.portion = (user_expense.portion/old_user_expense_total) * self.amount
+        user_expense.save
+      end
+    end
+  end
 
 
   def delete_owed_amounts

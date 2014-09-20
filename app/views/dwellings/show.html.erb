@@ -1,5 +1,12 @@
 <h1>Welcome to your abode</h1>
 <h2><%= @dwelling.name %></h2>
+<!--
+<%= form_for current_user, url: user_update_path(current_user.id), method: :put do |f| %>
+  <%= f.hidden_field :dwelling_id, value: nil %>
+  <%= f.submit "leave_abode" %>
+<% end %>
+-->
+
 <h3><%= @dwelling.address %></h3>
 <div id="expenses-wrapper">
   <div id="expenses-list">

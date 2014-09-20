@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show', as: :user_show
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
+  # delete '/users/:id/leave_abode' => 'users#leave_abode', as: :leave_abode
 
   get '/abodes/join' => 'users#join', as: :user_join
   put '/abodes' => 'users#add', as: :user_add
