@@ -4,11 +4,13 @@
   <li>
     <% if @user.dwelling != nil %>
     <%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id) %>
+    <%= link_to "Invite Roommates", dwelling_invite_path %>
     <% else %>
     <%= link_to "Create abode", dwellings_new_path %>
     <%= link_to "Join abode", user_join_path %>
     <% end %>
   </li>
+  <%= flash[:message] %>
 </ul>
 <h2>Emergency Contacts</h2>
 <ul>

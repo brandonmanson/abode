@@ -40,6 +40,14 @@ class DwellingsController < ApplicationController
     end
   end
 
+  def invite
+  end
+
+  def send_invitations
+  end
+
+  private
+
   def dwelling_params
     params.require(:dwelling).permit(:name, :address)
   end
