@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_email(@user).deliver
       sign_in(@user)
-      redirect_to user_path(@user.id)
+      redirect_to user_show_path(@user.id)
     else
       flash.now[:error] = "Try again"
       render :new
