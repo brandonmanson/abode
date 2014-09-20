@@ -13,7 +13,7 @@ describe UsersController do
 
     it 'should redirect to show page if user is created successfully' do
       post :create, user: {name: "User", email: "user@example.com", password: "password", password_confirmation: "password"}
-      expect(response).to redirect_to(user_show_path(assigns(:user)))
+      expect(response).to redirect_to(user_show_path(:user))
     end
 
     it 'should render the page again if the user is not created successfully' do
@@ -24,12 +24,10 @@ describe UsersController do
   end
 
   describe 'show' do
-    before do
-      @user = User.create(name: "User", email: "user@example.com", password: "password", password_confirmation: "password")
-    end
+    let(:user) { User.create(name: "User", email: "user@example.com", password: "password", password_confirmation: "password") }
 
     it 'should show user profile' do
-      get :show, id: @user
+      get :show, id: User.last.id
       expect(response).to render_template(:show)
     end
   end
@@ -40,18 +38,18 @@ describe UsersController do
     end
 
     it 'should show edit page' do
-      get :edit, id: @user
+      get :edit, id: User.last.id
       expect(response).to render_template(:edit)
     end
 
     it 'should redirect to show page if edited successfully' do
-      put :update, id: @user.id, user: {name: "User updated", email: "user@example.com", password: "password", password_confirmation: "password"}
+      put :update, id: User.first.id, user: {name: "User updated", email: "user@example.com", password: "password", password_confirmation: "password"}
       expect(response).to redirect_to(user_update_path(assigns(:user)))
     end
 
     # Password validation no longer works for update because we removed so that a person can be added to a dwelling. Best way to fix this situation - find another way to allow user to add dwelling (without supplying password) or find another way to validate password if user wants to update password?
     it 'should render edit page again if edited unsuccessfully' do
-      put :update, id: @user.id, user: {name: "User updated", email: "user@example.com", password: "pass", password_confirmation: "pass"}
+      put :update, id: User.last.id, user: {name: "User updated", email: "user@example", password: "pass", password_confirmation: "pass"}
       expect(response).to render_template(:edit)
     end
   end
