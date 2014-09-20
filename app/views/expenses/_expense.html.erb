@@ -1,8 +1,8 @@
 <li>
   <div id="expense_<%=expense.id%>" class="expense" >
-    Expense:
-    <%= link_to "#{expense.name} #{expense.amount}", expense_show_path(expense) %>
-    <%= expense.description %>
+    <%= link_to "Expense: #{expense.name}", expense_show_path(expense) %>
+    <p><%= expense.amount %></p>
+    <p><%= expense.description %></p>
     payer: <%= expense.payer.name %>
       <div class="owers"><ul>
         OWERS:
@@ -10,6 +10,6 @@
           <li><%=user.name%></li>
         <% end %>
       </ul></div>
-      <%= link_to "Delete", expense_destroy_path(expense), method: "delete" %>
+      <p><%= link_to "Delete", expense_destroy_path(expense), method: "delete" %></p>
   </div>
 </li>
