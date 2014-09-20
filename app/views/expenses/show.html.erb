@@ -8,3 +8,14 @@
 <h3>Paid By:</h3>
 <%= @expense.payer.name %>
 
+<div class="comments">
+  <ul>
+    <% @expense.comments.each do |comment| %>
+      <li><%= comment.description %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="new-comment">
+  <%= render partial: "comments/new", locals: { commentable: @expense, comment: Comment.new, path: expense_comments_path(@expense, @comment) } %>
+</div>
+
