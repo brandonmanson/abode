@@ -27,6 +27,7 @@
 
   def update
     @expense = Expense.find(params[:id])
+    p params
     @expense.attributes = expense_params
     if @expense.save
       @expense.redistribute_owed_amounts
