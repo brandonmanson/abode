@@ -8,6 +8,7 @@ class Expense < ActiveRecord::Base
   validates :name, :amount, presence: true
 
   # after_save :distribute_owed_amounts
+  before_save :distributed?
   before_destroy :delete_owed_amounts
 
   # could belong to comment
@@ -25,6 +26,10 @@ class Expense < ActiveRecord::Base
         u.user_expenses.create(expense_id: self.id, portion: self.amount / num_users)
       end
     end
+  end
+
+  def distributed?
+    UserExpense.where(expense_id: self.id).sum(:portion) == self.amount
   end
 
   def delete_owed_amounts
