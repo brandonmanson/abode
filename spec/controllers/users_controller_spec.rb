@@ -74,6 +74,15 @@ describe UsersController do
       expect(response).to redirect_to(dwelling_show_path(d.id))
     end
 
+    it 'should re-render join page if user does not supply correct code' do
+      d = Dwelling.create(name: "Test abode")
+      user = User.create(name: "User", email: "user@example.com", password: "password", password_confirmation: "password")
+      :authenticate_user!
+      allow(controller).to receive(:current_user) { user }
+      put :add, dwelling: {secret_key: "wrongkey"}
+      expect(response).to render_template(:join)
+    end
+
   end
 
   describe 'test of stub' do
