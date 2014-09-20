@@ -80,7 +80,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="769" y="25" name="dwellings">
+<table x="696" y="16" name="dwellings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -176,7 +176,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1052" y="129" name="comments">
+<table x="888" y="202" name="comments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -197,5 +197,20 @@
 <part>id</part>
 </key>
 <comment>polymorphic association</comment>
+</table>
+<table x="917" y="16" name="invitations">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="email" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="dwelling_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="dwellings" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
 </table>
 </sql>
