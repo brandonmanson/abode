@@ -31,5 +31,5 @@
   </ul>
 </div>
 <div class="new-comment">
-  <%= render partial: "comments/new", locals: { dwelling: @dwelling, comment: @comment } %>
+  <%= render partial: "comments/new", locals: { commentable: @dwelling, comment: Comment.new, path: abode_comments_path(@dwelling, @comment) } %>
 </div>

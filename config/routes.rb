@@ -40,6 +40,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create, :destroy, :update]
   end
 
+  resources :users do
+    resources :emergency_contacts
+  end
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

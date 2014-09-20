@@ -13,6 +13,7 @@
 
   def show
     @expense = Expense.find(params[:id])
+    @comment = Comment.new
   end
 
   def index

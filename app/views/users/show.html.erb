@@ -16,4 +16,12 @@
     <%= link_to "Create abode", dwellings_new_path %>
     <%= link_to "Join abode", user_join_path %>
   <% end %>
-
+  </li>
+</ul>
+<h2>Emergency Contacts</h2>
+<ul>
+  <%= render @user.emergency_contacts %>
+  <li>
+    <%= link_to "Add Contact", controller: 'emergency_contacts', action: 'new', user_id: @user.id %>
+  </li>
+</ul>
