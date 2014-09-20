@@ -5,14 +5,17 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/signup' => 'users#new'
+  get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show', as: :user_show
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
+  # delete '/users/:id/leave_abode' => 'users#leave_abode', as: :leave_abode
 
   get '/abodes/join' => 'users#join', as: :user_join
   put '/abodes' => 'users#add', as: :user_add
+  get '/abodes/invite' => 'dwellings#invite', as: :dwelling_invite
+  get '/abodes/send_invitations' => 'dwellings#send_invitations', as: :dwelling_send_invitations
 
   get '/abodes/expenses' => 'expenses#index', as: :expenses_list
   post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
@@ -41,6 +44,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :emergency_contacts
+  end
+
+  resources :abodes do
+    resources :invitations, only: [:index, :new, :create]
   end
 
   # You can have the root of your site routed with "root"

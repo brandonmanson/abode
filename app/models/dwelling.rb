@@ -2,6 +2,7 @@ class Dwelling < ActiveRecord::Base
   has_many :users
   has_many :expenses, through: :users
   has_many :comments, as: :commentable
+  has_many :invitations
 
   before_create :create_secret_key
 
@@ -24,7 +25,7 @@ class Dwelling < ActiveRecord::Base
 
   def create_secret_key
     begin
-      secret_key = SecureRandom.urlsafe_base64(32)
+      secret_key = SecureRandom.urlsafe_base64(12)
     end while Dwelling.find_by(secret_key: secret_key)
     self.secret_key = secret_key
   end
