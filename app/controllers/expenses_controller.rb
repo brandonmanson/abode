@@ -1,4 +1,4 @@
-  class ExpensesController < ApplicationController
+class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
@@ -13,21 +13,34 @@
 
   def show
     @expense = Expense.find(params[:id])
+    unless current_user.dwelling == @expense.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
+    # has_user_id([:id])
     @comment = Comment.new
   end
 
-  def index
+  def index # used as ajax response
     @dwelling = Dwelling.find(current_user.dwelling_id)
     render partial: @dwelling.expenses
   end
 
   def edit
     @expense = Expense.find(params[:id])
+    unless current_user.dwelling == @expense.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
   end
 
   def update
     @expense = Expense.find(params[:id])
     p params
+    unless current_user.dwelling == @expense.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
     @expense.attributes = expense_params
     if @expense.save
       @expense.redistribute_owed_amounts
@@ -39,6 +52,10 @@
 
   def destroy
     expense = Expense.find(params[:id])
+    unless current_user.dwelling == @expense.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
     dwelling = expense.dwelling
     expense.destroy
     redirect_to dwelling_show_path(dwelling)

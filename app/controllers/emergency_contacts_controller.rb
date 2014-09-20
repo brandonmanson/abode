@@ -19,10 +19,18 @@ class EmergencyContactsController < ApplicationController
 
   def edit
     @emergency_contact = EmergencyContact.find(params[:id])
+    unless current_user.dwelling == @emergency_contact.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
   end
 
   def update
     @emergency_contact = EmergencyContact.find(params[:id])
+    unless current_user.dwelling == @emergency_contact.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
     @emergency_contact.attributes = emergency_contact_params
     if @emergency_contact.save
       redirect_to user_show_path(current_user)
@@ -34,6 +42,10 @@ class EmergencyContactsController < ApplicationController
 
   def destroy
     EmergencyContact.find(params[:id]).destroy
+    unless current_user.dwelling == @emergency_contact.dwelling
+      @dwelling = current_user.dwelling
+      redirect_to dwelling_show_path(@dwelling)
+    end
     redirect_to user_show_path(current_user)
   end
 
