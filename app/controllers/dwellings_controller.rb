@@ -21,16 +21,25 @@ class DwellingsController < ApplicationController
       @dwelling = Dwelling.find(params[:id])
       @comment = Comment.new
     else
-      redirect_to new_session_path
+      redirect_to signin_path
     end
   end
 
   def edit
-    @dwelling = Dwelling.find(params[:id])
+    if current_user && current_user.dwelling.id.to_s == params[:id]
+      @dwelling = Dwelling.find(params[:id])
+    else
+      redirect_to signin_path
+    end
   end
 
   def update
-    @dwelling = Dwelling.find(params[:id])
+    if current_user && current_user.dwelling.id.to_s == params[:id]
+      @dwelling = Dwelling.find(params[:id])
+      @comment = Comment.new
+    else
+      redirect_to signin_path
+    end
     @dwelling.attributes = dwelling_params
     if @dwelling.save
       redirect_to action: "show", id: @dwelling.id

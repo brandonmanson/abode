@@ -16,10 +16,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    set_user_or_redirect(params[:id])
     @user = User.find(params[:id])
   end
 
   def edit
+    set_user_or_redirect(params[:id])
     @user = User.find(params[:id])
   end
 
@@ -48,9 +50,6 @@ class UsersController < ApplicationController
       flash.now[:error] = "This is not a valid code"
       render :join
     end
-  end
-
-  def leave_abode
   end
 
   private
