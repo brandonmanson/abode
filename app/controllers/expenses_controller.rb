@@ -1,4 +1,4 @@
-class ExpensesController < ApplicationController
+  class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
