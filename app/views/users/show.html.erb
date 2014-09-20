@@ -1,5 +1,5 @@
 <h1>Welcome, <%= @user.name %></h1>
-  <%= link_to "Edit Profile", user_edit_path(current_user) %>
+  <%= link_to "Edit Profile", user_edit_path(current_user), class: "profile_links" %><br>
 
   <% if @user.dwelling != nil %>
     <h2>Your profile</h2>
@@ -10,12 +10,12 @@
     <p><%= @user.dwelling_id %></p>
 
     <h2>Your abode</h2>
-    <p><%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id) %></p>
+    <p><%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id), class: "profile_links" %></p><br>
     <p> Use the following code to join new users to this abode: "<%= @user.dwelling.secret_key %>"</p>
-    <%= link_to "Invite Roommates", new_abode_invitation_path(@user.dwelling.id) %>
+    <%= link_to "Invite Roommates", new_abode_invitation_path(@user.dwelling.id), class: "profile_links" %>
   <% else %>
-    <%= link_to "Create abode", dwellings_new_path %>
-    <%= link_to "Join abode", user_join_path %>
+    <%= link_to "Create abode", dwellings_new_path, class: "profile_links" %><br>
+    <%= link_to "Join abode", user_join_path, class: "profile_links" %><br>
   <% end %>
   <%= flash[:message] %>
 <h2>Emergency Contacts</h2>

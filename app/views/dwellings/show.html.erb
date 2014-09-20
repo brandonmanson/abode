@@ -10,7 +10,7 @@
 <h3><%= @dwelling.address %></h3>
 <div id="expenses-wrapper">
   <div id="expenses-list">
-    <ul><%= render @dwelling.expenses %><ul>
+    <%= render @dwelling.expenses %>
   </div>
   <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
