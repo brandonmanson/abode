@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/signup' => 'users#new'
+  get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show', as: :user_show
   get '/users/:id/edit' => 'users#edit', as: :user_edit
