@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/abodes/join' => 'users#join', as: :user_join
   put '/abodes' => 'users#add', as: :user_add
+  get '/abodes/invite' => 'dwellings#invite', as: :dwelling_invite
+  get '/abodes/send_invitations' => 'dwellings#send_invitations', as: :dwelling_send_invitations
 
   get '/abodes/expenses' => 'expenses#index', as: :expenses_list
   post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
@@ -42,6 +44,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :emergency_contacts
+  end
+
+  resources :abodes do
+    resources :invitations, only: [:index, :new, :create]
   end
 
   # You can have the root of your site routed with "root"

@@ -40,6 +40,8 @@ class DwellingsController < ApplicationController
     end
   end
 
+  private
+
   def dwelling_params
     params.require(:dwelling).permit(:name, :address)
   end
