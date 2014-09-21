@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20140920160058) do
   create_table "user_expenses", force: true do |t|
     t.integer  "user_id"
     t.integer  "expense_id"
-    t.decimal  "portion"
-    t.decimal  "paid"
+    t.decimal  "portion",    default: 0.0
+    t.decimal  "paid",       default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

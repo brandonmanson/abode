@@ -10,10 +10,12 @@
 <h3><%= @dwelling.address %></h3>
 <div id="user_expenses">
     <span id="user-expense-heading">Your Expenses</span>
-    <span id="user-expense-summary">
-      Amount
+    <span class="user-expense-summary">
+      <span class="user-amount-heading">Amount</span><span class="user-total-expenses"><%= current_user.total_expenses %></span>
+      <span class="user-total-paid"><%= current_user.total_paid %></span>
+      <span class="user-total-owed"><%= current_user.total_owed %></span>
     </span>
-    <%= render current_user.user_expenses %>
+    <ul id="user-expenses"><%= render current_user.user_expenses %></ul>
 </div>
 <div id="expenses-wrapper">
   <ul id="expenses-list"><%= render @dwelling.expenses %></ul>
