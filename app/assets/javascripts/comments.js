@@ -1,4 +1,4 @@
-var app = angular.module('abode', ['ngResource', 'ngRoute']);
+// var app = angular.module('abode', ['ngResource', 'ngRoute']);
 
 app.factory('Comment', ['$resource', '$location', function($resource, $location) {
   var url = $location.$$absUrl;

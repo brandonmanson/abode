@@ -1,13 +1,17 @@
 class ExpensesController < ApplicationController
+  respond_to :json, only: [:index, :create]
   def create
-    @expense = Expense.new(expense_params)
-    @expense.payer = current_user
-    @expense.distribute_portions
-    if @expense.save
-      render partial: 'new', locals: {expense: Expense.new}
+    expense = Expense.new(expense_params)
+    expense.payer = current_user
+    expense.distribute_portions
+    if expense.save
+      # render partial: 'new', locals: {expense: Expense.new}
+      respond_with expense
     else
+      expense.destroy
       flash.now[:error] = "Expenses need a name and an amount"
-      render partial: 'new', locals: {expense: @expense}
+      # render partial: 'new', locals: {expense: expense}
+      render json: expense, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +27,8 @@ class ExpensesController < ApplicationController
 
   def index # used as ajax response
     @dwelling = Dwelling.find(current_user.dwelling_id)
-    render partial: @dwelling.expenses
+    respond_with @dwelling.expenses
+    # render partial: @dwelling.expenses
   end
 
   def edit

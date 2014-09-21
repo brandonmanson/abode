@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/abodes/invite' => 'dwellings#invite', as: :dwelling_invite
   get '/abodes/send_invitations' => 'dwellings#send_invitations', as: :dwelling_send_invitations
 
-  get '/abodes/expenses' => 'expenses#index', as: :expenses_list
-  post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
+  get '/abodes/expenses' => 'expenses#index', as: :expenses_list, defaults: { format: :json }
+  post '/abodes/expenses' => 'expenses#create', as: :expenses, defaults: { format: :json }
   get '/expenses/:id' => 'expenses#show', as: :expense_show
   get '/expenses/:id/edit' => 'expenses#edit', as: :expense_edit
   put '/expenses/:id' => 'expenses#update', as: :expense_update

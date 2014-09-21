@@ -8,7 +8,7 @@
 <% end %>
 -->
 
-<div id="user_expenses">
+<!-- <div id="user_expenses">
     <span id="user-expense-heading">Your Expenses</span>
     <span class="user-expense-summary">
       <span class="user-amount-heading">Amount</span><span class="user-total-expenses"><%= current_user.total_expenses %></span>
@@ -16,11 +16,20 @@
       <span class="user-total-owed"><%= current_user.total_owed %></span>
     </span>
     <ul id="user-expenses"><%= render current_user.user_expenses %></ul>
-</div>
-<div id="expenses-wrapper">
-  <ul id="expenses-list"><%= render @dwelling.expenses %></ul>
+</div> -->
+<div id="expenses-wrapper" ng-controller="ExpensesCtrl">
+  <ul>
+    <li ng-repeat="expense in expenses">
+     {{expense.description}}
+    </li>
+  </ul>
   <div id="new-expense-form-container">
-    <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
+  <form ng-submit="addExpense()">
+    <input type="text" ng-model="newExpense.name"/>
+    <input type="text" ng-model="newExpense.description"/>
+    <input type="text" ng-model="newExpense.amount"/>
+    <input type="submit" value="Add Expense">
+  </form>
   </div>
 </div>
 

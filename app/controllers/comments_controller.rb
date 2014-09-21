@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p request.original_url
     if request.original_url.include?("abodes")
       commentable = Dwelling.find(params[:abode_id])
     elsif request.original_url.include?("expenses")
