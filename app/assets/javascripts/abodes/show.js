@@ -15,7 +15,7 @@ $(document).ready(function(){
     var action = "/abodes/expenses"
     request = $.ajax(action, {method: "get"});
     request.done(function(response) {
-      $("#expenses-list ul").html(response);
+      $("#expenses-list").html(response);
     })
   }
 
