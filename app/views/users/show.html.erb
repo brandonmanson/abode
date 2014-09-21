@@ -3,6 +3,9 @@
   <div id="profile-dwelling-info">
   <% if @user.dwelling != nil %>
     <h2>Your abode: <%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id), class: "profile_links" %></h2>
+    <h3 id="roommate-info-title">Your Roommates:</h3>
+    <%= render @user.roommates %>
+
     <%= link_to "Invite Roommates", new_abode_invitation_path(@user.dwelling.id), class: "profile_links" %>
     <p>(Or send the following code to invite roommates to your abode: "<%= @user.dwelling.secret_key %>")</p>
   <% else %>

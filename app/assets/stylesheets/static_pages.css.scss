@@ -146,7 +146,7 @@ input[type="submit"]:hover {
 
 
 ul li a, .profile_links {
-	color: #ED4504;
+	color: #F88A50;
 	font-weight: lighter;
 	text-decoration: none;
 	padding-bottom: 10px;
@@ -244,12 +244,12 @@ ul li a:hover, .profile_links:hover {
 
 li.emergency-contact-detail {
 	margin-bottom: 1em;
-	border-top: 1px solid #483C32;
+	border-top: 1px solid #03A89E;
 	padding-top: 0.5em;
 }
 
 li.emergency-contact-detail:last-child {
-	border-bottom: 1px solid #483C32;
+	border-bottom: 1px solid #03A89E;
 	padding-bottom: 0.5em;
 }
 
@@ -265,6 +265,71 @@ li.emergency-contact-detail:last-child {
 
 .delete a:hover {
 	background-color: #808A87;
+}
+
+/*************************/
+/* User Profile ----- Roommates */
+/*************************/
+
+div.profile-roommates {
+
+}
+
+div.profile-roommate-detail {
+	box-sizing: border-box;	
+	display: inline-block;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+div.name {
+	width: 30%;
+	font-weight: bold;
+}
+
+div.email {
+	width: 45%;
+}
+
+div.phone {
+	width: 25%;
+}
+
+div.profile-roommates {
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+}
+
+#roommate-info-title {
+	padding-bottom: 1em;
+}
+
+div.roommate-wrapper {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	background-color: #03A89E;
+	color: white;
+	border-radius: 5px;
+	padding: 1%;
+}
+
+.roommate-contact-wrapper {
+	display: block;
+	width: 100%;
+	font-size: 1em;
+}
+
+#emergency-contact-title {
+	padding: 0.5em 0;
+	margin: 0.2em 0;
+	text-align: center;
+}
+
+.roommate-contact-detail {
+	box-sizing: border-box;	
+	display: inline-block;
+	/*border: 1px solid black;*/
 }
 
 #expenses-wrapper {
@@ -311,3 +376,33 @@ footer p {
 	font-size: 1em;
 	text-align: center;
 }
+
+/*************************/
+/* Responsive */
+/*************************/
+
+@media (max-width:800px) {
+	div.roommate-contact-wrapper {
+		width: 100%;
+		margin-left: 0;
+	}
+
+}
+
+@media (max-width:620px) {
+	div.roommate-contact-detail {
+		width: 100%;
+	}	
+
+	div.roommate-contact-wrapper {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		text-align: center;
+	}
+
+	div .profile-roommate-detail {
+		width: 100%;
+		text-align: center;
+	}
+}
+

@@ -1,0 +1,22 @@
+<div class="profile-roommates">
+	<div class="roommate-wrapper">
+		<div class="profile-roommate-detail name">
+			<%= user.name %>
+		</div><div class="profile-roommate-detail email">
+			<%= user.email %>
+		</div><div class="profile-roommate-detail phone">
+			<%= user.phone %>
+		</div>		
+	</div>
+	<h4 id="emergency-contact-title"><%= "Emergency Contacts" if user.emergency_contacts.count > 0 %></h4>
+	<% user.emergency_contacts.each do |contact| %>
+		<div class="roommate-contact-wrapper">
+			<div class="roommate-contact-detail name"><%= contact.name %>
+			</div><div class="roommate-contact-detail email">
+			<%= contact.email %>
+			</div><div class="roommate-contact-detail phone">
+			<%= contact.phone %>
+			</div>
+		</div>	
+	<% end %>
+</div>
