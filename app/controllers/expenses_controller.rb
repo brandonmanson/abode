@@ -36,14 +36,17 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find(params[:id])
-    p "params are #{params}"
     unless current_user.dwelling == @expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
     end
-    p "expense params are #{expense_params}"
     @expense.attributes = expense_params
-    @expense.redistribute_owed_amounts
+
+    params[:user_expense].each do |id, expense_info|
+      user_expense = UserExpense.find(id)
+      user_expense.update(portion: expense_info[:portion])
+    end
+
     if @expense.save
       redirect_to expense_show_path(@expense)
     else
