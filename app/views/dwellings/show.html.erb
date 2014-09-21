@@ -1,5 +1,5 @@
 <h1>Welcome to your abode</h1>
-<h2><%= @dwelling.name %></h2>
+<span class="dwelling-name"><%= @dwelling.name %></span>
 <!--
 <%= form_for current_user, url: user_update_path(current_user.id), method: :put do |f| %>
   <%= f.hidden_field :dwelling_id, value: nil %>
@@ -9,11 +9,14 @@
 
 <h3><%= @dwelling.address %></h3>
 <div id="user_expenses">
-    <h4>Your Expenses</h4>
+    <span id="user-expense-heading">Your Expenses</span>
+    <span id="user-expense-summary">
+      Amount
+    </span>
     <%= render current_user.user_expenses %>
 </div>
 <div id="expenses-wrapper">
-    <ul id="expenses-list"><%= render @dwelling.expenses %></ul>
+  <ul id="expenses-list"><%= render @dwelling.expenses %></ul>
   <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
   </div>
