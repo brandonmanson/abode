@@ -97,14 +97,16 @@ nav ul li a:hover {
 	color: #808A87;
 }
 
+/*************************/
 /* Signup Form */
+/*************************/
 
 form#new_user, form#new_dwelling {
 	display: block;
 	margin: auto;
 }
 
-#user_name, #user_email, #user_phone, #user_password, #user_password_confirmation, input[type="submit"], #session_email, #session_password, #dwelling_name, #dwelling_address, #expense_name, #expense_description, #expense_amount {
+#user_name, #user_email, #user_phone, #user_password, #user_password_confirmation, input[type="submit"], #session_email, #session_password, #dwelling_name, #dwelling_address, #expense_name, #expense_description, #expense_amount, #invitation_email {
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
@@ -126,7 +128,9 @@ input[type="submit"]:hover {
 	color: white;
 }
 
+/*************************/
 /* Sign In Form */
+/*************************/
 
 #sign-in {
 	color: white;
@@ -135,18 +139,21 @@ input[type="submit"]:hover {
 	font-size: 3em;
 }
 
+/*************************/
 /* User Profile */
+/*************************/
+
 
 ul li a, .profile_links {
-	color: white;
+	color: #ED4504;
 	font-weight: lighter;
 	text-decoration: none;
-	font-size: 1.5em;
 	padding-bottom: 10px;
+	font-weight: bold;
 }
  
 ul li a:hover, .profile_links:hover {
-	color: #808A87;
+	color: #03A89E;
 }
 
 #user_expenses {
@@ -218,6 +225,31 @@ ul li a:hover, .profile_links:hover {
 
 .expense-comments ul li:odd {
 	background-color: #808A87;
+}
+
+#profile-dwelling-info, #profile-personal-info, #profile-contacts-info {
+	box-sizing: border-box;
+	padding: 1em;
+	background-color: white;
+	color: #03A89E;
+	border-radius: 1em;
+	margin-bottom: 1em;
+}
+
+#profile-contacts-info ul.contacts-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+li.emergency-contact-detail {
+	margin-bottom: 1em;
+	border-top: 1px solid #483C32;
+	padding-top: 0.5em;
+}
+
+li.emergency-contact-detail:last-child {
+	border-bottom: 1px solid #483C32;
+	padding-bottom: 0.5em;
 }
 
 .delete a {

@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
     @invitation.dwelling = Dwelling.find(params[:abode_id])
     if @invitation.save
       InvitationMailer.invitation_email(@invitation).deliver
-      flash.now[:message] = "Invitation successful!"
+      flash[:message] = "Invitation successful!"
       redirect_to new_abode_invitation_path
     else
       flash.now[:message] = "Email not valid"
