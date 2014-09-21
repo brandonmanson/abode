@@ -42,14 +42,20 @@ class ExpensesController < ApplicationController
     end
     @expense.attributes = expense_params
 
+    previous_portions = {}
     params[:user_expense].each do |id, expense_info|
       user_expense = UserExpense.find(id)
+      previous_portions[id] = user_expense.portion
       user_expense.update(portion: expense_info[:portion])
     end
 
     if @expense.save
       redirect_to expense_show_path(@expense)
     else
+      previous_portions.each do |id, portion|
+        user_expense = UserExpense.find(id)
+        user_expense.update(portion: portion)
+      end
       flash.now[:error] = "Expense not updated"
       render 'edit'
     end

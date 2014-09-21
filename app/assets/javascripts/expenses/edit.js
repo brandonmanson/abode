@@ -10,5 +10,15 @@ $(document).ready(function() {
 			var currentPortion = this.value;
 			this.value = currentPortion * newAmount / previousAmount;
 		});
+		$("#sum-of-portions").html(newAmount)
+	});
+
+	$(".user_expense_portion").on("focusout", function() {
+		var sum = 0;
+		$(".user_expense_portion").each(function(user) {
+			var value = parseInt(this.value);
+			sum += value
+		});
+		$("#sum-of-portions").html(sum)
 	})
 })
