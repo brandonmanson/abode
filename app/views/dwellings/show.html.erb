@@ -9,9 +9,7 @@
 
 <h3><%= @dwelling.address %></h3>
 <div id="expenses-wrapper">
-  <div id="expenses-list">
-    <%= render @dwelling.expenses %>
-  </div>
+  <ul id="expenses-list" ><%= render @dwelling.expenses %></ul>
   <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
   </div>
