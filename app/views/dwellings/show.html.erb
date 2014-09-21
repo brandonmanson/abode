@@ -22,14 +22,14 @@
   </div>
 </div>
 
-
-
-<div class="comments">
-  <h3>Comments</h3>
-    <% @dwelling.comments.each do |comment| %>
-      <p><%= current_user.name %>: <%= comment.description %></p>
-    <% end %>
-</div>
-<div class="new-comment">
-  <%= render partial: "comments/new", locals: { commentable: @dwelling, comment: Comment.new, path: abode_comments_path(@dwelling, @comment) } %>
+<div ng-controller="CommentsCtrl">
+  <form ng-submit="addComment()">
+    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
+    <input type="submit" value="Add comment">
+  </form>
+  <ul>
+    <li ng-repeat="comment in comments">
+      {{comment.description}}
+    </li>
+  </ul>
 </div>
