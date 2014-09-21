@@ -8,11 +8,8 @@ class Expense < ActiveRecord::Base
   validates :name, :amount, presence: true
   validate :amount_must_be_distributed
 
-  # after_save :distribute_owed_amounts
-  # before_save :distributed?
   before_destroy :delete_owed_amounts
 
-  # could belong to comment
   def total_paid
     self.user_expenses.sum("paid")
   end
