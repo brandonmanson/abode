@@ -2,8 +2,8 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
+    @expense.distribute_portions
     if @expense.save
-      @expense.distribute_owed_amounts
       render partial: 'new', locals: {expense: Expense.new}
     else
       flash.now[:error] = "Expenses need a name and an amount"
@@ -36,23 +36,34 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find(params[:id])
-    p params
     unless current_user.dwelling == @expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
     end
     @expense.attributes = expense_params
+
+    previous_portions = {}
+    params[:user_expense].each do |id, expense_info|
+      user_expense = UserExpense.find(id)
+      previous_portions[id] = user_expense.portion
+      user_expense.update(portion: expense_info[:portion])
+    end
+
     if @expense.save
-      @expense.redistribute_owed_amounts
       redirect_to expense_show_path(@expense)
     else
+      previous_portions.each do |id, portion|
+        user_expense = UserExpense.find(id)
+        user_expense.update(portion: portion)
+      end
+      flash.now[:error] = "Expense not updated"
       render 'edit'
     end
   end
 
   def destroy
     expense = Expense.find(params[:id])
-    unless current_user.dwelling == @expense.dwelling
+    unless current_user.dwelling == expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
     end

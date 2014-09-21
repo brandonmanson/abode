@@ -8,18 +8,17 @@
 -->
 
 <h3><%= @dwelling.address %></h3>
+<div id="user_expenses">
+    <h4>Your Expenses</h4>
+    <%= render current_user.user_expenses %>
+</div>
 <div id="expenses-wrapper">
-  <div id="expenses-list">
     <%= render @dwelling.expenses %>
-  </div>
   <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
   </div>
 </div>
 
-<div id="user_expenses">
-  <ul><%= render current_user.user_expenses %><ul>
-</div>
 
 <p>Send the code '<%= @dwelling.secret_key %>' to your roommates to let them join this abode.</p>
 
