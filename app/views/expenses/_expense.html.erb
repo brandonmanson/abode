@@ -1,28 +1,26 @@
-  <div id="expense_<%=expense.id%>" class="expense" >
-      <h3><%= link_to "#{expense.name}", expense_show_path(expense) %></h3>
-    <span class="expense-details">
-      <p class="amount">Amount: <%= expense.amount %></p>
-      <p class="in-charge">Who's in charge: <%= expense.payer.name %></p>
-    </span>
-    <h3>Description</h3>
-    <p class="description"><%= expense.description %></p>
-      <div class="owers">
-        <p class="whos-paying">Who's Paying:</p>
-        <p>
-          <% expense.users.each do |user| %>
-            <%=gravatar_for(user)%>
-          <% end %>
-        </p>
-      </div>
-      <div class="expense-comments">
-      <p>COMMENTS:</p>
-        <ul>
-          <% expense.comments.each do |comment| %>
-            <li><%=comment.description%></li>
-          <% end %>
-        </ul>
-      </div>
-
-
-      <p class="delete"><%= link_to "Delete", expense_destroy_path(expense), method: "delete" %></p>
+<div id="expense_<%=expense.id%>" class="expense" >
+    <h3><%= link_to "#{expense.name}", expense_show_path(expense) %></h3>
+  <span class="expense-details">
+    <p class="amount">Amount: <%= expense.amount %></p>
+    <p class="in-charge">Who's in charge: <%= expense.payer.name %></p>
+  </span>
+  <h3>Description</h3>
+  <p class="description"><%= expense.description %></p>
+  <div class="owers">
+    <p class="whos-paying">Who's Paying:</p>
+    <p>
+      <% expense.users.each do |user| %>
+        <%=gravatar_for(user)%>
+      <% end %>
+    </p>
   </div>
+  <div class="expense-comments">
+  <p>COMMENTS:</p>
+    <ul>
+      <% expense.comments.each do |comment| %>
+        <li><%=comment.description%></li>
+      <% end %>
+    </ul>
+  </div>
+  <p class="delete"><%= link_to "Delete", expense_destroy_path(expense), method: "delete" %></p>
+</div>

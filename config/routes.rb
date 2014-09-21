@@ -35,11 +35,11 @@ Rails.application.routes.draw do
   put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
 
   resources :abodes do
-    resources :comments, only: [:index, :new, :create, :destroy, :update]
+    resources :comments, only: [:index, :new, :create, :destroy, :update], defaults: { format: :json }
   end
 
   resources :expenses do
-    resources :comments, only: [:index, :new, :create, :destroy, :update]
+    resources :comments, only: [:index, :new, :create, :destroy, :update], defaults: { format: :json }
   end
 
   resources :users do

@@ -8,14 +8,14 @@
 <h3>Paid By:</h3>
 <%= @expense.payer.name %>
 
-<div class="comments">
+<div ng-controller="CommentsCtrl">
+  <form ng-submit="addComment()">
+    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
+    <input type="submit" value="Add comment">
+  </form>
   <ul>
-    <% @expense.comments.each do |comment| %>
-      <li><%= comment.description %></li>
-    <% end %>
+    <li ng-repeat="comment in comments">
+      {{comment.description}}
+    </li>
   </ul>
 </div>
-<div class="new-comment">
-  <%= render partial: "comments/new", locals: { commentable: @expense, comment: Comment.new, path: expense_comments_path(@expense, @comment) } %>
-</div>
-
