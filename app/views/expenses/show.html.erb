@@ -15,10 +15,9 @@
 	    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
 	    <input type="submit" value="Add comment" class="expense-comment-submit">
 	  </form>
-	  <ul>
-	    <li ng-repeat="comment in comments">
-	      {{comment.description}}
-	    </li>
-	  </ul>
+	    <div ng-repeat="comment in comments" class="comments">
+	    	<h3>Comments</h3>
+	      <p>{{comment.description}}</p>
+	    </div>
 	</div>
 </div>
