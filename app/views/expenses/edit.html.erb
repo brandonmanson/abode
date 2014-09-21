@@ -7,8 +7,9 @@
     <%= label_tag(:amount, "Amount") %>
     <%= f.number_field :amount, placeholder: "Amount" %><br>
 
-    <% @expense.user_expenses.each do |user_expense| %>
-    <%= user_expense.user.name %><input class="user_expense_portion" name="user_expense[<%= user_expense.id %>][portion]" type="number" value="<%= user_expense.portion %>">
+    <% @expense.dwelling.users.each do |user| %>
+    <% user_expense = user.find_expense(@expense) %>
+    <%= user.name %><input class="user_expense_portion" name="user_expense[<%= user_expense ? user_expense.id : "user_id[#{user.id}]" %>][portion]" type="number" value="<%= user_expense ? user_expense.portion : 0 %>">
     <br>
     <% end %>
     Total: <div id="sum-of-portions"><%= @expense.amount %></div>
