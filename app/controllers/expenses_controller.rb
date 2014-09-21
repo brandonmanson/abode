@@ -2,8 +2,8 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
+    @expense.distribute_portions
     if @expense.save
-      @expense.distribute_owed_amounts
       render partial: 'new', locals: {expense: Expense.new}
     else
       flash.now[:error] = "Expenses need a name and an amount"
@@ -52,7 +52,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     expense = Expense.find(params[:id])
-    unless current_user.dwelling == @expense.dwelling
+    unless current_user.dwelling == expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
     end

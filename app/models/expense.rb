@@ -17,6 +17,14 @@ class Expense < ActiveRecord::Base
     self.user_expenses.sum("paid")
   end
 
+  def distribute_portions
+    users = self.dwelling.users
+    num_users = users.count
+    users.each do |u|
+      self.user_expenses << UserExpense.create(portion: self.amount / num_users, user_id: u.id )
+    end
+  end
+
   def distribute_owed_amounts
     users = self.dwelling.users
     num_users = users.count
