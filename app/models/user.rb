@@ -33,9 +33,12 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  
   def roommates
     self.dwelling.users.where.not(id: self.id)
+  end
+
+  def find_expense(expense)
+    UserExpense.find_by(expense_id: expense.id, user_id: self.id)
   end
 
   private
