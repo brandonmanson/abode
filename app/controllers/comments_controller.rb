@@ -1,4 +1,15 @@
 class CommentsController < ApplicationController
+  respond_to :json
+
+  def index
+    if request.original_url.include?("abodes")
+      commentable = Dwelling.find(params[:abode_id])
+    elsif request.original_url.include?("expenses")
+      commentable = Expense.find(params[:expense_id])
+    end
+    respond_with commentable.comments
+  end
+
   def new
     @comment = Comment.new
   end
