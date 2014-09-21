@@ -1,3 +1,4 @@
+<div class="expense">
 <h2><%= @expense.dwelling.name %></h2>
 <h3> <%= @expense.name %>: <%= @expense.amount %> <%= link_to "Edit", expense_edit_path(@expense) %></h3>
 <h3>Amounts Owed:</h3>
@@ -18,4 +19,5 @@
       {{comment.description}}
     </li>
   </ul>
+</div>
 </div>
