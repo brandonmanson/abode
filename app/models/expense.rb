@@ -5,8 +5,8 @@ class Expense < ActiveRecord::Base
   has_one :dwelling, through: :payer
   has_many :comments, as: :commentable
 
-  accepts_nested_attributes_for :user_expenses
   validates :name, :amount, presence: true
+  validate :amount_must_be_distributed
 
   # after_save :distribute_owed_amounts
   # before_save :distributed?
@@ -29,8 +29,10 @@ class Expense < ActiveRecord::Base
     end
   end
 
-  def distributed?
-    UserExpense.where(expense_id: self.id).sum(:portion) == self.amount
+  def amount_must_be_distributed
+    if self.amount != self.user_expenses.reduce(0){|sum, e| sum = sum + e.portion}
+      errors.add(:amount, "must be distributed fully among users sharing the expense")
+    end
   end
 
   def redistribute_owed_amounts
