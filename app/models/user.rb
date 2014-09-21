@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  
+  def roommates
+    self.dwelling.users.where.not(id: self.id)
+  end
+
   private
   def create_remember_token
     self.remember_token = User.digest(User.new_remember_token)
