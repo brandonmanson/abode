@@ -1,23 +1,24 @@
 <div class="expense">
-<h2><%= @expense.dwelling.name %></h2>
-<h3> <%= @expense.name %>: <%= @expense.amount %> <%= link_to "Edit", expense_edit_path(@expense) %></h3>
-<h3>Amounts Owed:</h3>
-<% @expense.users.each do |user| %>
-<p><%= user.name %>: <%= user.user_expenses.find_by(expense_id: @expense.id).portion %></p>
-<% end %>
+	<h2><%= @expense.dwelling.name %></h2>
+	<h3><%= @expense.name %>: <%= @expense.amount %></h3>
+	<p class="expense-edit"><%= link_to "Edit", expense_edit_path(@expense) %></p>
+	<h3>Paid By:</h3>
+	<p class="gravatar"><%= gravatar_for(@expense.payer) %></p>
+	<h3>Amounts Owed:</h3>
+	<% @expense.users.each do |user| %>
+	<p class="gravatar"><%= gravatar_for(user) %> <%= user.user_expenses.find_by(expense_id: @expense.id).portion %></p>
+	<% end %>
 
-<h3>Paid By:</h3>
-<%= @expense.payer.name %>
 
-<div ng-controller="CommentsCtrl">
-  <form ng-submit="addComment()">
-    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
-    <input type="submit" value="Add comment">
-  </form>
-  <ul>
-    <li ng-repeat="comment in comments">
-      {{comment.description}}
-    </li>
-  </ul>
-</div>
+	<div ng-controller="CommentsCtrl">
+	  <form ng-submit="addComment()">
+	    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
+	    <input type="submit" value="Add comment" class="expense-comment-submit">
+	  </form>
+	  <ul>
+	    <li ng-repeat="comment in comments">
+	      {{comment.description}}
+	    </li>
+	  </ul>
+	</div>
 </div>
