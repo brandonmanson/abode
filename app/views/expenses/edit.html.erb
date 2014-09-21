@@ -6,13 +6,16 @@
     <%= f.text_field :description, placeholder: "Description" %><br>
     <%= label_tag(:amount, "Amount") %>
     <%= f.number_field :amount, placeholder: "Amount" %><br>
-
-    <% @expense.dwelling.users.each do |user| %>
-    <% user_expense = user.find_expense(@expense) %>
-    <%= user.name %><input class="user_expense_portion" name="<%= user_expense ? "user_expense[#{user_expense.id}]" : "user_id[#{user.id}]" %>[portion]" type="number" value="<%= user_expense ? user_expense.portion : 0 %>">
-    <br>
-    <% end %>
-    Total: <div id="sum-of-portions"><%= @expense.amount %></div>
+    <div id="update-portions">
+        <p id="edit-description">Update what each person owes for this expense, but make sure it adds up!</p>
+        <h3>Roommates</h3>
+        <% @expense.dwelling.users.each do |user| %>
+        <% user_expense = user.find_expense(@expense) %>
+        <p><%= user.name %></p>
+        <input class="user_expense_portion" name="<%= user_expense ? "user_expense[#{user_expense.id}]" : "user_id[#{user.id}]" %>[portion]" type="number" value="<%= user_expense ? user_expense.portion : 0 %>">
+        <% end %>
+    </div>
+    <div id="sum-of-portions"><%= @expense.amount %></div>
 
     <%= f.submit "Update Expense" %>
   <% end %>

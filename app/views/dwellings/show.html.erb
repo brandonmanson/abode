@@ -18,7 +18,7 @@
     <ul id="user-expenses"><%= render current_user.user_expenses %></ul>
 </div>
 <div id="expenses-wrapper">
-  <ul id="expenses-list"><%= render @dwelling.expenses %></ul>
+  <div id="expenses-list"><%= render @dwelling.expenses %></div>
   <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
   </div>
