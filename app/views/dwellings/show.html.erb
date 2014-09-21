@@ -1,6 +1,9 @@
 <h1>Your Abode: <%= @dwelling.name %></h1>
 <h3><%= @dwelling.address %></h3>
-<p>Invite Code: <%= @dwelling.secret_key %></p>
+
+  <%= link_to "Invite Roommates", new_abode_invitation_path(current_user.dwelling.id), class: ["profile_links", "black_hover"] %>
+  <p>(Or send the following code to invite roommates to your abode: "<%= current_user.dwelling.secret_key %>")</p>
+
 <!--
 <%= form_for current_user, url: user_update_path(current_user.id), method: :put do |f| %>
   <%= f.hidden_field :dwelling_id, value: nil %>
@@ -8,7 +11,7 @@
 <% end %>
 -->
 
-<div id="user_expenses">
+<!-- <div id="user_expenses">
     <span id="user-expense-heading">Your Expenses</span>
     <span class="user-expense-summary">
       <span class="user-amount-heading">Amount</span><span class="user-total-expenses"><%= current_user.total_expenses %></span>
@@ -16,7 +19,7 @@
       <span class="user-total-owed"><%= current_user.total_owed %></span>
     </span>
     <ul id="user-expenses"><%= render current_user.user_expenses %></ul>
-</div>
+</div> -->
 <div id="expenses-wrapper">
   <div id="expenses-list"><%= render @dwelling.expenses %></div>
   <div id="new-expense-form-container">
