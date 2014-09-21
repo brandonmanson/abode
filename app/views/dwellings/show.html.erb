@@ -22,20 +22,9 @@
 
 <p>Send the code '<%= @dwelling.secret_key %>' to your roommates to let them join this abode.</p>
 
-<div class="comments">
-  <ul>
-    <% @dwelling.comments.each do |comment| %>
-      <li><%= comment.description %></li>
-    <% end %>
-  </ul>
-</div>
-<div class="new-comment">
-  <%= render partial: "comments/new", locals: { commentable: @dwelling, comment: Comment.new, path: abode_comments_path(@dwelling, @comment) } %>
-</div>
-
 <div ng-controller="CommentsCtrl">
   <form ng-submit="addComment()">
-    <input type="text" ng-model="newComment.description">
+    <textarea ng-model="newComment.description" rows="5" cols="60"></textarea>
     <input type="submit" value="Add comment">
   </form>
   <ul>
