@@ -16,11 +16,9 @@
   </div>
   <div class="expense-comments">
   <p>COMMENTS:</p>
-    <ul>
       <% expense.comments.each do |comment| %>
-        <li><%=comment.description%></li>
+        <p class="comment"><%= User.find(comment.user_id).name %>: <%=comment.description%></p>
       <% end %>
-    </ul>
   </div>
   <p class="delete"><%= link_to "Delete", expense_destroy_path(expense), method: "delete" %></p>
 </div>
