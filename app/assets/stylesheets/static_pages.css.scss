@@ -224,8 +224,34 @@ ul li a:hover, .profile_links:hover {
 	text-align: center;
 }
 
-.expense-comments ul li:odd {
-	background-color: #808A87;
+.expense textarea {
+	display: block;
+	margin: 2% auto;
+	border: none;
+}
+
+.expense .expense-comment-submit {
+	color: white;
+	background-color: #03A89E;
+}
+
+.expense-comments p.comment:nth-child(even) {
+	display: block;
+	box-sizing: border-box;
+	background-color: #03A89E;
+	padding: 1%;
+	border-radius: 5px;
+	color: white;
+}
+
+.expense-comments p.comment:nth-child(odd) {
+	display: block;
+	box-sizing: border-box;
+	background-color: #F88A50;
+	padding: 1%;
+	border-radius: 5px;
+	color: white;
+
 }
 
 #profile-dwelling-info, #profile-personal-info, #profile-contacts-info {
@@ -376,6 +402,38 @@ footer p {
 	font-size: 1em;
 	text-align: center;
 }
+
+/*************************/
+/* Expense Show */
+/*************************/
+
+.expense h2 {
+	color: #03A89E;
+	text-align: center;
+	font-size: 2.5em;
+}
+.expense-edit {
+	font-size: 1.2em;
+	font-weight: lighter;
+	text-align: center;
+}
+
+.expense-edit a {
+	text-decoration: none;
+	color: #F88A50;
+}
+
+.expense-edit a:hover {
+	color: #03A89E;
+}
+
+.gravatar {
+	text-align: center;
+}
+
+
+
+
 
 /*************************/
 /* Responsive */
