@@ -3,7 +3,7 @@ class InvitationMailer < ActionMailer::Base
 
   def invitation_email(invitation)
     @invitation = invitation
-    @url = "http://localhost:3000"
+    @url = "http://payrent.heroku.com"
     mail(to: @invitation.email, subject: "You've been invited to #{Dwelling.find(@invitation.dwelling_id).name}")
   end
 end
