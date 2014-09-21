@@ -34,6 +34,10 @@
 </div>
 
 <div ng-controller="CommentsCtrl">
+  <form ng-submit="addComment()">
+    <input type="text" ng-model="newComment.description">
+    <input type="submit" value="Add comment">
+  </form>
   <ul>
     <li ng-repeat="comment in comments">
       {{comment.description}}
