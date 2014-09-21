@@ -1,27 +1,30 @@
 <h1>Welcome, <%= @user.name %></h1>
-  <%= link_to "Edit Profile", user_edit_path(current_user), class: "profile_links" %><br>
 
+  <div id="profile-dwelling-info">
   <% if @user.dwelling != nil %>
-    <h2>Your profile</h2>
-    <p><%= @user.name %></p>
-    <p><%= @user.email %></p>
-    <p><%= @user.phone %></p>
-    <p><%= @user.name %></p>
-    <p><%= @user.dwelling_id %></p>
-
-    <h2>Your abode</h2>
-    <p><%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id), class: "profile_links" %></p><br>
-    <p> Use the following code to join new users to this abode: "<%= @user.dwelling.secret_key %>"</p>
+    <h2>Your abode: <%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id), class: "profile_links" %></h2>
     <%= link_to "Invite Roommates", new_abode_invitation_path(@user.dwelling.id), class: "profile_links" %>
+    <p>(Or send the following code to invite roommates to your abode: "<%= @user.dwelling.secret_key %>")</p>
   <% else %>
     <%= link_to "Create abode", dwellings_new_path, class: "profile_links" %><br>
     <%= link_to "Join abode", user_join_path, class: "profile_links" %><br>
   <% end %>
+  </div>
+  <div id="profile-personal-info">
+    <h2>Your profile</h2>
+    <p><%= @user.name %></p>
+    <p><%= @user.email %></p>
+    <p><%= @user.phone %></p>
+  <%= link_to "Edit Profile", user_edit_path(current_user), class: "profile_links" %>
+  </div>
+
   <%= flash[:message] %>
-<h2>Emergency Contacts</h2>
-<ul>
-  <%= render @user.emergency_contacts %>
-  <li>
+  <div id="profile-contacts-info">
+    <h2>Emergency Contacts</h2>
+    <ul class="contacts-list">
+      <%= render @user.emergency_contacts %>
+    </ul>
+    <ul class="contacts-list"><li>
     <%= link_to "Add Contact", controller: 'emergency_contacts', action: 'new', user_id: @user.id %>
-  </li>
-</ul>
+  </li></ul>
+  </div>
