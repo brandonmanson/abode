@@ -149,13 +149,43 @@ ul li a:hover, .profile_links:hover {
 	color: #808A87;
 }
 
+#user_expenses {
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+#user_expenses h4 {
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: white;
+	color: #03A89E;
+	padding: 1% 3%;
+	border-radius: 5px;
+}
+
+#user_expenses p {
+	font-size: 1.5em;
+
+}
+
+.expense {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #F0FFFF;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 5%;
+}
 .expense h3 {
 	font-size: 2em;
+	text-align: center;
+	color: #03A89E;
+
 }
 
 .expense h3 a {
 	text-decoration: none;
-	color: white;
+	color: #03A89E;
 }
 
 .expense h3 a:hover {
@@ -164,9 +194,42 @@ ul li a:hover, .profile_links:hover {
 
 .expense p, .owers p, .expense-comments ul p {
 	font-size: 1.5em;
+	color: #03A89E;
 }
 
-.expense-comments li:odd {
+.expense-details {
+	width: 100%;
+	text-align: center;
+}
+
+
+.owers {
+	text-align: center;
+}
+
+.whos-paying {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.description {
+	text-align: center;
+}
+
+.expense-comments ul li:odd {
 	background-color: #808A87;
 }
 
+.delete a {
+	color: white;
+	width: 320px;
+	text-align: right;
+	background-color: #03A89E;
+	padding: 1% 3%;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.delete a:hover {
+	background-color: #808A87;
+}

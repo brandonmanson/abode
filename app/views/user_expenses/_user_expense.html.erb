@@ -1,8 +1,5 @@
-<li>
-  <div id="user_expense_<%=user_expense.id%>" class="user_expense" >
-    User Expense:
-    <%= user_expense.expense.name %>
-    <%= user_expense.portion %>
-    <%= user_expense.paid %>
-  </div>
-</li>
+<div id="user_expense_<%=user_expense.id%>" class="user_expense" >
+	<p><%= user_expense.expense.name %></p>
+	<p><%= user_expense.portion %></p>
+	<p><%= user_expense.paid %></p>
+</div>
