@@ -1,5 +1,6 @@
-<h1>Welcome to your abode</h1>
-<span class="dwelling-name"><%= @dwelling.name %></span>
+<h1>Your Abode: <%= @dwelling.name %></h1>
+<h3><%= @dwelling.address %></h3>
+<p>Invite Code: <%= @dwelling.secret_key %></p>
 <!--
 <%= form_for current_user, url: user_update_path(current_user.id), method: :put do |f| %>
   <%= f.hidden_field :dwelling_id, value: nil %>
@@ -7,7 +8,6 @@
 <% end %>
 -->
 
-<h3><%= @dwelling.address %></h3>
 <div id="user_expenses">
     <span id="user-expense-heading">Your Expenses</span>
     <span id="user-expense-summary">
@@ -23,14 +23,12 @@
 </div>
 
 
-<p>Send the code '<%= @dwelling.secret_key %>' to your roommates to let them join this abode.</p>
 
 <div class="comments">
-  <ul>
+  <h3>Comments</h3>
     <% @dwelling.comments.each do |comment| %>
-      <li><%= comment.description %></li>
+      <p><%= current_user.name %>: <%= comment.description %></p>
     <% end %>
-  </ul>
 </div>
 <div class="new-comment">
   <%= render partial: "comments/new", locals: { commentable: @dwelling, comment: Comment.new, path: abode_comments_path(@dwelling, @comment) } %>
