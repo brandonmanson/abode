@@ -36,16 +36,18 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find(params[:id])
-    p params
+    p "params are #{params}"
     unless current_user.dwelling == @expense.dwelling
       @dwelling = current_user.dwelling
       redirect_to dwelling_show_path(@dwelling)
     end
+    p "expense params are #{expense_params}"
     @expense.attributes = expense_params
+    @expense.redistribute_owed_amounts
     if @expense.save
-      @expense.redistribute_owed_amounts
       redirect_to expense_show_path(@expense)
     else
+      flash.now[:error] = "Expense not updated"
       render 'edit'
     end
   end
