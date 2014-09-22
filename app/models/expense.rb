@@ -23,7 +23,7 @@ class Expense < ActiveRecord::Base
   end
 
   def amount_must_be_distributed
-    if self.amount != self.user_expenses.reduce(0){|sum, e| sum = sum + e.portion}
+    if self.amount != self.user_expenses.reduce(0){|sum, e| sum = sum + e.portion}.round
       errors.add(:amount, "must be distributed fully among users sharing the expense")
     end
   end

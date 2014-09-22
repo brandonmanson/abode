@@ -11,15 +11,21 @@
 <% end %>
 -->
 
-<!-- <div id="user_expenses">
+<div id="user_expenses">
     <span id="user-expense-heading">Your Expenses</span>
-    <span class="user-expense-summary">
-      <span class="user-amount-heading">Amount</span><span class="user-total-expenses"><%= current_user.total_expenses %></span>
-      <span class="user-total-paid"><%= current_user.total_paid %></span>
-      <span class="user-total-owed"><%= current_user.total_owed %></span>
-    </span>
     <ul id="user-expenses"><%= render current_user.user_expenses %></ul>
-</div> -->
+    <ul id="user-paid-for">
+      <li>
+        Already paid: <%= current_user.total_paid  %>
+      </li>
+    </ul>
+    <ul id="user-paid-for">
+      <li>
+        Total Owed: <%= current_user.total_owed  %>
+      </li>
+    </ul>
+</div>
+
 <div id="expenses-wrapper">
   <div id="expenses-list"><%= render @dwelling.expenses %></div>
   <div id="new-expense-form-container">
