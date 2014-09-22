@@ -3,8 +3,12 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.payer = current_user
     @expense.distribute_portions
+
     if @expense.save
       render partial: 'new', locals: {expense: Expense.new}
+    if params['paid'] == 'on'
+      @expense.user_expenses.find_by(user_id: @expense.payer.id).update(paid: @expense.amount)
+    end
     else
       flash.now[:error] = "Expenses need a name and an amount"
       render partial: 'new', locals: {expense: @expense}

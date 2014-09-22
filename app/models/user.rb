@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def total_paid
-    self.user_expenses.reduce(0) { |sum, e| e.paid + sum}
+    self.user_expenses.sum("paid")
   end
 
   def User.new_remember_token
